@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
+:root {
+  --clr-main: #fff;
+  --clr-sub: #f6f3ed;
+  --clr-detail: #dccdb9;
+  --clr-gris: #b9b9b9;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #222;
+}
+#root {
+  height: 100vh;
+  min-width: 300px;
+  width: 100vw;
+  background-color: var(--clr-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+#drum-machine {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px;
+  min-width: 300px;
+  width: 400px;
+  max-width: 600px;
+  height: fit-content;
+  gap: 2rem;
+  justify-items: center;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  background-color: var(--clr-sub);
+  border-radius: 1.5rem;
+  padding: 2rem;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.pads-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.drum-pads {
+  width: 100px;
+  height: 100px;
+  background-color: var(--clr-detail);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  box-shadow: 0 0 3px 0 var(--clr-gris);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease-in-out;
+}
+.drum-pads:active {
+  background-color: var(--clr-gris);
+  color: var(--clr-main);
+  scale: 0.9;
+}
+#display {
+  min-width: 10rem;
+  max-width: 100%;
+  min-height: 3rem;
+  max-height: fit-content;
+  background-color: var(--clr-gris);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px 0 var(--clr-gris);
 }
-
-.App-link {
-  color: #61dafb;
+#display > span {
+  width: 100%;
+  color: var(--clr-main);
+  text-align: center;
+  line-height: 2rem;
+  word-wrap: break-word;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#display > input[type="range"] {
+  cursor: pointer;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]:focus-visible {
+  outline: none;
+}
+.volume {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.volume p {
+  text-align: end;
+  width: 40px;
+  padding-bottom: 0.1rem;
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1rem;
 }
